@@ -7,7 +7,7 @@ terraform {
 
     kubectl = {
       source  = "alekc/kubectl"
-      version = "~>2.1.0-beta2"
+      version = "~>2.0.0"
     }
 
     helm = {
