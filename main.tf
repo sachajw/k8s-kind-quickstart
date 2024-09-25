@@ -3,7 +3,7 @@ provider "kind" {
   # configuration options
 }
 
-resource "kind_cluster" "ortelius" {
+resource "kind_cluster" "kind" {
   name            = var.kind_cluster_name
   #node_image      = "kindest/node:v1.25.3"
   node_image      = "kindest/node:v1.18.0"
