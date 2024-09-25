@@ -32,12 +32,6 @@ resource "kind_cluster" "dev" {
         host_port      = 5432
         listen_address = "0.0.0.0"
       }
-      # etcd port
-      extra_port_mappings {
-        container_port = 31317
-        host_port      = 2379
-        listen_address = "0.0.0.0"
-      }
     }
     node {
       role = "worker"
