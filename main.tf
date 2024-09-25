@@ -45,40 +45,40 @@ resource "kind_cluster" "ortelius" {
 
 # ortelius
 # https://artifacthub.io/packages/helm/ortelius/ortelius
-resource "helm_release" "ortelius" {
-  name              = "ortelius"
-  chart             = "ortelius"
-  repository        = "https://ortelius.github.io/ortelius-charts/"
-  namespace         = var.ortelius_namespace
-  create_namespace  = true
-  recreate_pods     = true
-  depends_on        = [kind_cluster.ortelius]
-  timeout           = 900
-  dependency_update = true
-  replace           = true
-  # global ingress nginx controller
-  set {
-    name  = "global.ingress.nginx.controller"
-    value = "true"
-  }
-  # node port for ui access from localhost
-  set {
-    name  = "ms-nginx.ingress.nodePort"
-    value = "31000"
-  }
-  # postgres global
-  set {
-    name  = "global.postgresql.enabled"
-    value = "true"
-  }
-  # node port for postgres access from localhost
-  set {
-    name  = "ms-postgres.ingress.nodePort"
-    value = "31316"
-  }
-  # postgres password
-  set {
-    name  = "ms-general.dbpass"
-    value = "postgres"
-  }
-}
+# resource "helm_release" "ortelius" {
+#   name              = "ortelius"
+#   chart             = "ortelius"
+#   repository        = "https://ortelius.github.io/ortelius-charts/"
+#   namespace         = var.ortelius_namespace
+#   create_namespace  = true
+#   recreate_pods     = true
+#   depends_on        = [kind_cluster.ortelius]
+#   timeout           = 900
+#   dependency_update = true
+#   replace           = true
+#   # global ingress nginx controller
+#   set {
+#     name  = "global.ingress.nginx.controller"
+#     value = "true"
+#   }
+#   # node port for ui access from localhost
+#   set {
+#     name  = "ms-nginx.ingress.nodePort"
+#     value = "31000"
+#   }
+#   # postgres global
+#   set {
+#     name  = "global.postgresql.enabled"
+#     value = "true"
+#   }
+#   # node port for postgres access from localhost
+#   set {
+#     name  = "ms-postgres.ingress.nodePort"
+#     value = "31316"
+#   }
+#   # postgres password
+#   set {
+#     name  = "ms-general.dbpass"
+#     value = "postgres"
+#   }
+# }

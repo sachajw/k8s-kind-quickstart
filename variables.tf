@@ -1,7 +1,7 @@
 variable "kind_cluster_name" {
   type        = string
   description = "The name of the cluster"
-  default     = "ortelius"
+  default     = "kind"
 }
 
 variable "kind_cluster_config_path" {
@@ -12,8 +12,8 @@ variable "kind_cluster_config_path" {
 
 variable "ortelius_namespace" {
   type        = string
-  description = "The Ortelius namespace"
-  default     = "ortelius"
+  description = "namespace"
+  default     = "kind"
 }
 
 #variable "backstage_namespace" {
