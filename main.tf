@@ -20,26 +20,26 @@ resource "kind_cluster" "dev" {
       kubeadm_config_patches = [
         "kind: InitConfiguration\nnodeRegistration:\n  kubeletExtraArgs:\n    node-labels: \"kubernetes.io/os=linux\"\n"
       ]
-      # ortelius http port
-      extra_port_mappings {
-        container_port = 31000
-        host_port      = 8080
-        listen_address = "0.0.0.0"
-      }
-      # postgresql port
-      extra_port_mappings {
-        container_port = 31316
-        host_port      = 5432
-        listen_address = "0.0.0.0"
-      }
+      # # ortelius http port
+      # extra_port_mappings {
+      #   container_port = 31000
+      #   host_port      = 8080
+      #   listen_address = "0.0.0.0"
+      # }
+      # # postgresql port
+      # extra_port_mappings {
+      #   container_port = 31316
+      #   host_port      = 5432
+      #   listen_address = "0.0.0.0"
+      # }
     }
     node {
       role = "worker"
-      # postgres persistent volume
-      extra_mounts {
-        host_path      = "/tmp/postgres"
-        container_path = "/pgdata"
-      }
+      # # postgres persistent volume
+      # extra_mounts {
+      #   host_path      = "/tmp/postgres"
+      #   container_path = "/pgdata"
+      # }
     }
   }
 }
