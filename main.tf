@@ -3,9 +3,9 @@ provider "kind" {
   # configuration options
 }
 
-resource "kind_cluster" "kind" {
+resource "kind_cluster" "dev" {
   name            = var.kind_cluster_name
-  #node_image      = "kindest/node:v1.25.3"
+  #node_image      = "kindest/node:v1.31.0"
   node_image      = "kindest/node:v1.18.8"
   kubeconfig_path = pathexpand(var.kind_cluster_config_path)
   wait_for_ready  = true
